@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: node-service
+spec:
+  selector:
+    app: nodeapp
+  ports:
+  - protocol: TCP
+    port: 3000 #// host port, where pod is running
+    targetPort: 3000 #// container port
+    nodePort: 30081  #//You’ll be able to contact the NodePort Service, from outside the cluster, by requesting <NodeIP>:<NodePort>.,  a NodePort in the range of 30000 - 32767 and an internal cluster IP address is assigned to the service. specially to expose 
+  type: NodePort
